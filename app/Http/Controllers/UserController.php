@@ -28,7 +28,13 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+        $data = $request->only('email', 'password');
+
+        return view('page.home_user', compact('data'));
     }
 
     /**
@@ -36,12 +42,6 @@ class UserController extends Controller
      */
     public function show(Request $request)
     {
-        $request->validate([
-            'email' => 'required|email',
-            'password' => 'required'
-        ]);
-        $data = $request -> only('email', 'password');
-        return view('page.home_user', compact('data'));
 
         // mano carga las vistas al link, desde aca no se ven las vistas que estas llamando ahi
     }

@@ -17,7 +17,7 @@
                 <!-- Formulario -->
                 <form action="{{ url('/login') }}" method="POST" class="space-y-5">
                     @csrf
-                    
+
                     <!-- Email -->
                     <div class="relative">
                         <span class="absolute inset-y-0 left-3 flex items-center text-gray-400">
@@ -30,7 +30,7 @@
                             </svg>
 
                         </span>
-                        <input type="email" placeholder="Correo electrónico"
+                        <input type="email" name="email" placeholder="Correo electrónico"
                             class="w-full pl-10 pr-3 py-2.5 border border-gray-200 rounded-lg text-sm focus:ring-1 focus:ring-[#60A5FA] focus:outline-none" />
                     </div>
 
@@ -45,7 +45,7 @@
                             </svg>
 
                         </span>
-                        <input type="password" placeholder="Contraseña"
+                        <input type="password" name="password" placeholder="Contraseña"
                             class="w-full pl-10 pr-10 py-2.5 border border-gray-200 rounded-lg text-sm focus:ring-1 focus:ring-[#60A5FA] focus:outline-none" />
                         <span class="absolute inset-y-0 right-3 flex items-center text-gray-400 cursor-pointer">
                             <!-- Icono Eye -->
@@ -131,5 +131,3 @@
 
     </div>
 </x-app-layout>
-
-
