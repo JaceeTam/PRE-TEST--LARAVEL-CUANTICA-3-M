@@ -9,3 +9,7 @@ Route::get('/', function () {
 
 Route::get('/login', [UserController::class, 'index']);
 Route::post('/login', [UserController::class, 'store']);
+
+use App\Http\Controllers\TaskController;
+
+Route::get('/tasks', [TaskController::class, 'index']);

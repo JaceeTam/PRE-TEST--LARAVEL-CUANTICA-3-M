@@ -43,7 +43,7 @@ class UserController extends Controller
         $data = $request -> only('email', 'password');
         return view('page.home_user', compact('data'));
 
-        // mano carga las vistas al link, desde aca no se ven las vistas que estas llamando ahi
+        
     }
 
     /**
