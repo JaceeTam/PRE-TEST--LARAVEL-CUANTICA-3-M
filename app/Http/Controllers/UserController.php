@@ -43,7 +43,7 @@ class UserController extends Controller
     public function show(Request $request)
     {
 
-        // mano carga las vistas al link, desde aca no se ven las vistas que estas llamando ahi
+        
     }
 
     /**
