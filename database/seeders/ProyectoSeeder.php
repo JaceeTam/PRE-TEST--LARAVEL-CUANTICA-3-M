@@ -14,11 +14,10 @@ class ProyectoSeeder extends Seeder
      */
     public function run(): void
     {
-         // 1. Asegúrate de que existe una empresa a la cual asignarle el proyecto
-        // Si no existe ninguna, crea una por si acaso
+        
         $empresa = Empresa::first();
 
-        // 2. Crea un proyecto y asígnale el ID de la empresa
+        // cre ael priyecto y asigna id
         Proyecto::create([
             'nombre' => 'Proyecto Control de Asistencia',
             'descripcion' => 'Desarrollo de una aplicación web para gestión interna.',
