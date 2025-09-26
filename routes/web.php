@@ -12,4 +12,4 @@ Route::post('/login', [UserController::class, 'store']);
 
 use App\Http\Controllers\TaskController;
 
-Route::get('/tasks', [TaskController::class, 'index']);
+
