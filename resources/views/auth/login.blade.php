@@ -99,7 +99,7 @@
 
                     <!-- Botón principal -->
                     <button type="submit"
-                        class="w-full bg-[#FF9C00] hover:bg-[#ffb733] text-white font-medium py-2.5 rounded-lg text-sm shadow-sm transition">
+                        class="w-full bg-[#FF9C00] cursor-pointer hover:bg-[#ffb733] text-white font-medium py-2.5 rounded-lg text-sm shadow-sm transition">
                         Iniciar sesión
                     </button>
                 </form>

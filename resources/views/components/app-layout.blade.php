@@ -145,7 +145,7 @@
     </script>
 
     <!-- Contenido dinámico -->
-    <main class="flex-1 p-6 overflow-y-auto mt-20">
+    <main class="flex-1 p-6 overflow-y-auto mt-10">
         {{ $slot }}
     </main>
 
