@@ -25,7 +25,7 @@
         </a>
 
         <!-- my task -->
-        <a href="#"
+        <a href="{{ route('index') }}"
             class="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-gray-100 transition">
             <i class="fas fa-tasks text-gray-600 w-5 text-center"></i>
             <span class="text-gray-700">My Tasks</span>
