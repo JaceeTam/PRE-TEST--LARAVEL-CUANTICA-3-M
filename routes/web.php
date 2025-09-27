@@ -1,15 +1,24 @@
 <?php
-
-use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\UserController;
 
-Route::get('/', function () {
-    return 'HOLA';
+// Redirección inicial
+Route::redirect('/', '/login');
+Route::middleware('guest')->group(function () {
+    Route::get('/login', [LoginController::class, 'create'])->name('login');
+    Route::post('/login', [LoginController::class, 'store']);
+    Route::get('/register', [RegisterController::class, 'create'])->name('register');
+    Route::post('/register', [RegisterController::class, 'store']);
 });
-
-Route::get('/login', [UserController::class, 'index']);
-Route::post('/login', [UserController::class, 'store']);
-
-
-
-
+Route::middleware('auth')->group(function () {
+    // Dashboard
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard/stats', [DashboardController::class, 'stats'])->name('dashboard.stats');
+    Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
+    
+    // Gestión de usuarios (futuro - admin)
+    Route::resource('users', UserController::class);
+});
