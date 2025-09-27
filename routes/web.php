@@ -4,7 +4,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
-
+use App\Http\Controllers\AccountController;
 // Redirección inicial
 Route::redirect('/', '/login');
 Route::middleware('guest')->group(function () {
@@ -18,7 +18,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/dashboard/stats', [DashboardController::class, 'stats'])->name('dashboard.stats');
     Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
-    
+    Route::get('/myaccount', [AccountController::class, 'index'])->name('account');
     // Gestión de usuarios (futuro - admin)
     Route::resource('users', UserController::class);
 });

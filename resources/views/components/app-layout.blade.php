@@ -8,46 +8,25 @@
     <title>Cuantica Group</title>
 
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://kit.fontawesome.com/291c56a30a.js" crossorigin="anonymous"></script>
+   @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+
 </head>
 
-<body>
-    <header class="fixed top-0 left-0 w-full z-50">
-        <!-- Barra superior negra -->
-        <div class="bg-black text-white text-center font-semibold text-sm py-1.5"></div>
-
-        <!-- Barra principal -->
-        <div id="main-header"
-            class="flex justify-between items-center px-4 py-2 transition-colors duration-300 bg-transparent">
-
-            <!-- Izquierda: menú hamburguesa -->
-            <div class="flex items-center gap-3 text-xl md:text-2xl">
-                <button id="menu-btn" class="text-current focus:outline-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="size-5">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                    </svg>
-                </button>
-            </div>
-
-            <!-- Derecha: íconos usuario y carrito -->
-            <div class="flex items-center gap-3 text-xl md:text-2xl">
-                <button id="user-btn" class="text-current focus:outline-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="size-5">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                    </svg>
-                </button>
-
-                <a href="{{ route('dashboard') }}" class="text-current focus:outline-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="size-5">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                    </svg>
-                </a>
-            </div>
+<body class="bg-gray-50">
+    
+    <div class="flex min-h-screen">
+        <!-- Sidebarr -->
+        @include('components.sidebar')       
+        <div class="flex-1 flex flex-col">         
+            <main class="flex-1 p-6">
+                <!-- contenid variable -->
+                {{ $slot ?? '' }}        
+            </main>
+            <footer class="py-6 text-center text-sm text-gray-500">
+                Cuantica Group. Todos los derechos reservados.
+            </footer>
         </div>
 
         <!-- Menú móvil -->
