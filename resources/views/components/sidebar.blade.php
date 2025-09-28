@@ -23,10 +23,17 @@
         </a>
 
         <!-- my task -->
+
         <a href="#"
             class="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-orange-50 transition text-gray-700">
             <i class="fas fa-tasks w-5 text-center"></i>
             <span>My Tasks</span>
+            
+        <a href="{{ route('index') }}"
+            class="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-gray-100 transition">
+            <i class="fas fa-tasks text-gray-600 w-5 text-center"></i>
+            <span class="text-gray-700">My Tasks</span>
+
         </a>
 
         <!-- my groups -->
