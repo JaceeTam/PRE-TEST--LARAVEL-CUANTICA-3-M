@@ -5,7 +5,10 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\GroupController;
 use App\Http\Controllers\TasksController;
+
+
 // Redirección inicial
 Route::redirect('/', '/login');
 Route::middleware('guest')->group(function () {
@@ -23,4 +26,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/tasks', [TasksController::class, 'index'])->name('index');
     // Gestión de usuarios (futuro - admin)
     Route::resource('users', UserController::class);
+});
+
+
+
+// Rutas protegidas
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    
+    // My Groups
+    Route::get('/groups', [GroupController::class, 'index'])->name('groups.index');
+    
+    Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
 });

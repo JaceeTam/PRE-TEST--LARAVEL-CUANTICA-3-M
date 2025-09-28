@@ -1,8 +1,6 @@
 <div id="sidebar" class="w-72 min-h-screen bg-white shadow-md flex flex-col p-4">
-
     <!-- zona de perfil de usuario -->
     <div class="flex items-center space-x-3 mb-6 border rounded-lg p-2.5 border-gray-400 w-full">
-        <!-- avatar temporal -->
         <img src="https://ui-avatars.com/api/?name={{ urlencode(Auth::user()->name) }}&background=FF9C00&color=fff"
             alt="Avatar" class="w-10 h-10 rounded-full">
 
@@ -19,32 +17,38 @@
     <nav class="flex flex-col space-y-2">
         <!-- home -->
         <a href="{{ route('dashboard') }}"
-            class="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-gray-100 transition">
-            <i class="fas fa-home text-gray-600 w-5 text-center"></i>
-            <span class="text-gray-700">Home</span>
+            class="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-orange-50 transition {{ request()->routeIs('dashboard') ? 'bg-orange-50 text-[#FF9C00]' : 'text-gray-700' }}">
+            <i class="fas fa-home w-5 text-center"></i>
+            <span>Home</span>
         </a>
 
         <!-- my task -->
+
+        <a href="#"
+            class="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-orange-50 transition text-gray-700">
+            <i class="fas fa-tasks w-5 text-center"></i>
+            <span>My Tasks</span>
+            
         <a href="{{ route('index') }}"
             class="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-gray-100 transition">
             <i class="fas fa-tasks text-gray-600 w-5 text-center"></i>
             <span class="text-gray-700">My Tasks</span>
+
         </a>
 
         <!-- my groups -->
-        <a href="#"
-            class="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-gray-100 transition">
-            <i class="fas fa-users text-gray-600 w-5 text-center"></i>
-            <span class="text-gray-700">My Groups</span>
+        <a href="{{ route('groups.index') }}"
+            class="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-orange-50 transition {{ request()->routeIs('groups.*') ? 'bg-orange-50 text-[#FF9C00]' : 'text-gray-700' }}">
+            <i class="fas fa-users w-5 text-center"></i>
+            <span>My Groups</span>
         </a>
 
         <!-- my account -->
         <a href="{{ route('account') }}"
-            class="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-gray-100 transition">
-            <i class="fas fa-user text-gray-600 w-5 text-center"></i>
-            <span class="text-gray-700">My Account</span>
+            class="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-orange-50 transition text-gray-700">
+            <i class="fas fa-user w-5 text-center"></i>
+            <span>My Account</span>
         </a>
-
 
         <!-- logout -->
         <form method="POST" action="{{ route('logout') }}" class="mt-4">
